@@ -1,7 +1,10 @@
+require 'time'
+
 module Actions
   def self.read(records)
     records.find().each do |record|
-      time = record['time'].strftime("%A, %B %d %H:%M")
+      parsed_time = Time.parse(record['time'])
+      time = parsed_time.strftime("%A, %B %d %H:%M")
       say "<%= color('#{time}', ON_BLACK) %> #{record['entry']}"
     end
   end
@@ -18,7 +21,7 @@ module Actions
     new_record = {
       'entry' => input_entry,
       'tags'  => tags,
-      'time'  => Time.now
+      'time'  => "#{Time.now}"
     }
 
     say "\n ... saved"
