@@ -2,6 +2,7 @@
 
 require 'highline/import'
 require 'mongo'
+require_relative 'actions.rb'
 
 say "Preparing journal... \n\n"
 mongo_client = Mongo::MongoClient.from_uri(ENV['JOURNAL_MONGO_URI'])
@@ -9,7 +10,7 @@ db = mongo_client.db()
 entries = db.collection('entries')
 
 if ARGV[0] == 'read'
-  require_relative 'lib/read.rb'
+  Actions.read entries
 else
-  require_relative 'lib/write.rb'
+  Actions.write entries
 end
