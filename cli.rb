@@ -22,9 +22,9 @@ case
 when opts.read
   Actions.read entries
 when opts.search
-  Actions.search opts.search
+  Actions.search entries, opts.search
 when opts.tagged
-  Actions.tagged opts.tagged
+  Actions.tagged entries, opts.tagged
 else
   Actions.write entries
 end
