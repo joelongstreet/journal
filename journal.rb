@@ -1,6 +1,6 @@
 require 'time'
 
-module Actions
+module Journal
   def self.read(collection)
     print_records collection.find().sort('time')
   end

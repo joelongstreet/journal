@@ -3,7 +3,7 @@
 require 'highline/import'
 require 'mongo'
 require 'trollop'
-require_relative 'actions.rb'
+require_relative 'journal.rb'
 
 mongo_client = Mongo::MongoClient.from_uri(ENV['JOURNAL_MONGO_URI'])
 db = mongo_client.db()
@@ -21,11 +21,11 @@ say "Preparing journal... \n\n"
 
 case
 when opts.read
-  Actions.read entries
+  Journal.read entries
 when opts.search
-  Actions.search entries, opts.search
+  Journal.search entries, opts.search
 when opts.tagged
-  Actions.tagged entries, opts.tagged
+  Journal.tagged entries, opts.tagged
 else
-  Actions.write entries
+  Journal.write entries
 end
