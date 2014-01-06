@@ -1,5 +1,7 @@
 #journal
 
+[![Code Climate](https://codeclimate.com/github/joelongstreet/journal.png)](https://codeclimate.com/github/joelongstreet/journal)
+
 `journal` is a simple command line utility which helps me keep track of all the little things I learn each day.
 
 If you want to journal, you can:
