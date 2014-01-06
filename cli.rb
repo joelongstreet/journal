@@ -11,6 +11,7 @@ entries = db.collection('entries')
 
 opts = Trollop::options do
   opt :read, "read the most recent entries from your journal"
+  opt :write, "write an entry in your journal"
   opt :search, "text search through your entire journal", :type => :string
   opt :tagged, "find journal entries which match a tag", :type => :string
 end

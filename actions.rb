@@ -2,19 +2,19 @@ require 'time'
 
 module Actions
   def self.read(collection)
-    print_records collection.find
+    print_records collection.find().sort('time')
   end
 
   def self.search(collection, term)
     msg = "searching your journal for entries containing "
     say "<%= color('#{msg}', ON_BLACK) %> <%= color('#{term}', BOLD) %>\n\n"
-    print_records collection.find({ "entry" => Regexp.new(term) })
+    print_records collection.find({ "entry" => Regexp.new(term) }).sort('time')
   end
 
   def self.tagged(collection, tag)
     msg = "searching your journal for entries tagged "
     say "<%= color('#{msg}', ON_BLACK) %> <%= color('#{tag}', BOLD) %>\n\n"
-    print_records collection.find({ "tags" => tag })
+    print_records collection.find({ "tags" => tag }).sort('time')
   end
 
   def self.write(collection)
